@@ -29,6 +29,7 @@
   margin: 0 auto;
 }
 .homepage__title {
+  margin-top: 50px;
   margin-bottom: 100px;
 }
 .homepage__grid-menu {
