@@ -1,10 +1,19 @@
 <template>
   <div id="app" class="page-layout">
+    <Header />
     <main class="main">
       <router-view />
     </main>
   </div>
 </template>
+<script lang="ts">
+import Header from "@/components/header/header.vue";
+export default {
+  components: {
+    Header
+  }
+};
+</script>
 <style lang="scss" scoped>
 .main {
   padding-left: 56px;
