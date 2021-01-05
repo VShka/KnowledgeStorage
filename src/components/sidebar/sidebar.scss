@@ -1,0 +1,122 @@
+.sidebar {
+  background: #fff;
+  box-shadow: 1px 0 0 #E0E0E0;
+  width: 56px;
+  position: fixed;
+  top: 73px;
+  left: 0;
+  bottom: 0;
+  transition: .2s ease-in-out;
+}
+
+.sidebar_collapsed {
+  width: 244px;
+}
+
+.sidebar__collapse-btn {
+  width: 16px;
+  height: 16px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("~@/assets/img/icons/collapse-sidebar-icon.svg");
+  background-color: transparent;
+  position: absolute;
+  border: none;
+  right: -8px;
+  top: 42px;
+  transform: rotate(180deg);
+  transition: .2s ease-in-out;
+}
+
+.sidebar__collapse-btn_collapsed {
+  transform: rotate(0);
+}
+
+
+.sidebar__menu {
+  margin-top: 24px;
+}
+
+.sidebar__menu-link {
+  padding: 10px 16px 10px 16px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.sidebar__menu-link_collapsed {
+  padding: 10px 15px 10px 42px;
+}
+
+.sidebar__menu-link_active::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 4px;
+  bottom: 4px;
+  width: 4px;
+  background: #ED1C24;
+  border-radius: 0 4px 4px 0;
+}
+
+.sidebar__menu-link_active .sidebar__menu-link-text {
+  color: #ED1C24;
+  font-weight: 500;
+}
+
+.sidebar__menu-link-icon {
+  flex: 0 0 24px;
+  height: 24px;
+  width: 24px;
+  display: block;
+  background-repeat: no-repeat;
+  background-position: center;
+  vertical-align: middle;
+}
+
+.sidebar__menu-link-icon_list {
+  background-image: url("~@/assets/img/icons/list-icon-red.svg");
+}
+
+.sidebar__menu-link-text {
+  color: #92929D;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  vertical-align: middle;
+  margin-left: 12px;
+  white-space: nowrap;
+}
+
+.sidebar__menu-link-text_fade-leave {
+  transition: opacity .05s ease-in-out;
+}
+
+.sidebar__menu-link-text_fade-enter {
+  transition: opacity .05s ease-in-out .05s;
+}
+
+.sidebar__menu-link-text_fade-enter {
+  opacity: 0;
+}
+
+.sidebar__menu-link-text_fade-enter-from,
+.sidebar__menu-link-text_fade-leave-to {
+  opacity: 0;
+}
+
+@media screen and (max-width: 1024px) {
+  .sidebar {
+      transform: translateX(-110%);
+      transition: 0.3s;
+      z-index: 1000;
+      top: 61px;
+  }
+  .sidebar__collapse-btn {
+      display: none;
+  }
+  .sidebar_opened {
+      transform: translateX(0px);
+  }
+}

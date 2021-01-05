@@ -1,6 +1,7 @@
 <template>
   <div id="app" class="page-layout">
     <Header />
+    <Sidebar />
     <main class="main">
       <router-view />
     </main>
@@ -8,9 +9,12 @@
 </template>
 <script lang="ts">
 import Header from "@/components/header/header.vue";
+import Sidebar from "@/components/sidebar/sidebar.vue";
+import { ref } from "vue";
 export default {
   components: {
-    Header
+    Header,
+    Sidebar
   }
 };
 </script>
