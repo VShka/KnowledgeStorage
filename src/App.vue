@@ -3,6 +3,13 @@
 </template>
 
 <style lang="scss">
+@import "assets/css/normalize.css";
+body {
+  font-weight: 400;
+  color: #171725;
+  background: #fafafb;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
