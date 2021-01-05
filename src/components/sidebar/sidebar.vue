@@ -1,8 +1,5 @@
 <template>
-  <aside
-    class="sidebar"
-    :class="{ sidebar_collapsed: isCollapsed, sidebar_opened: isOpened }"
-  >
+  <aside class="sidebar">
     <nav class="sidebar__menu">
       <ul class="sidebar__menu-list">
         <li class="sidebar__menu-item">
@@ -32,19 +29,7 @@
         </li>
       </ul>
     </nav>
-    <button
-      class="sidebar__collapse-btn"
-      :class="{ 'sidebar__collapse-btn_collapsed': isCollapsed }"
-      @click="$emit('onCollapse', !isCollapsed)"
-    ></button>
+    <button class="sidebar__collapse-btn"></button>
   </aside>
 </template>
-<script lang="ts">
-export default {
-  props: {
-    isCollapsed,
-    isOpened
-  }
-};
-</script>
 <style lang="scss" scoped src="./sidebar.scss"></style>
