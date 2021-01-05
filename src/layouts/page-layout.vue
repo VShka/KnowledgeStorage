@@ -1,6 +1,14 @@
 <template>
   <div id="app" class="page-layout">
-    <Header />
+    <Header 
+      :sidebar-is-opened="sidebarIsOpened"
+      @onToggleOpening="onToggleOpening"
+    />
+    <Sidebar
+      :is-collapsed="sidebarIsCollapsed"
+      :is-opened="sidebarIsOpened"
+      @onCollapse="onCollapseSidebar"
+    />
     <main class="main">
       <router-view />
     </main>
@@ -8,9 +16,36 @@
 </template>
 <script lang="ts">
 import Header from "@/components/header/header.vue";
+import Sidebar from "@/components/sidebar/sidebar.vue";
+import { ref } from "vue";
 export default {
   components: {
-    Header
+    Header,
+    Sidebar
+  },
+  setup() {
+    let sidebarIsCollapsed = ref(true);
+    let sidebarIsOpened = ref(false);
+
+    onCollapseSidebar(value) {
+      if (!value) {
+        localStorage.setItem("tnOrderIsSidebarMinified", "true");
+      } else {
+        localStorage.removeItem("tnOrderIsSidebarMinified");
+      }
+      sidebarIsCollapsed = value;
+    }
+
+    onToggleOpening(value) {
+      sidebarIsOpened = value;
+    }
+
+    return {
+      sidebarIsCollapsed,
+      sidebarIsOpened,
+      onCollapseSidebar,
+      onToggleOpening
+    };
   }
 };
 </script>
