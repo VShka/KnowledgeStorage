@@ -25,7 +25,7 @@
 
 <style lang="scss" scoped>
 .homepage {
-  max-width: 80%;
+  max-width: 90%;
   margin: 0 auto;
 }
 .homepage__title {
@@ -36,11 +36,13 @@
   margin: 0 auto;
 }
 .grid-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   grid-gap: 20px;
 
   .grid-list__item {
+    min-width: 205px;
     background-color: #fff;
     border-radius: 20px;
     box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.2);
