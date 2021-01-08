@@ -5,6 +5,11 @@
     </router-link>
   </header>
 </template>
+<script lang="ts">
+export default {
+  name: "Header"
+};
+</script>
 <style lang="scss" scoped>
 .header {
   background: #fff;

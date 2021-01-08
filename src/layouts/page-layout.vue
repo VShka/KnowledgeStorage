@@ -1,20 +1,49 @@
 <template>
   <div id="app" class="page-layout">
     <Header />
-    <Sidebar />
-    <main class="main">
-      <router-view />
+    <Sidebar
+      :isCollapsed="sidebarIsCollapsed"
+      @onCollapse="onCollapseSidebar"
+    />
+    <main
+      class="main"
+      :class="{ 'main_sidebar-is-collapsed': sidebarIsCollapsed }"
+    >
+      <router-view></router-view>
     </main>
   </div>
 </template>
 <script lang="ts">
 import Header from "@/components/header/header.vue";
 import Sidebar from "@/components/sidebar/sidebar.vue";
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 export default {
   components: {
     Header,
     Sidebar
+  },
+  setup() {
+    const sidebarIsCollapsed = ref(true);
+
+    const onCollapseSidebar: Function = (value: boolean) => {
+      if (!value) {
+        localStorage.setItem("tnOrderIsSidebarMinified", "true");
+      } else {
+        localStorage.removeItem("tnOrderIsSidebarMinified");
+      }
+      sidebarIsCollapsed.value = value;
+    };
+
+    onMounted(() => {
+      if (localStorage.getItem("tnOrderIsSidebarMinified")) {
+        sidebarIsCollapsed.value = false;
+      }
+    });
+
+    return {
+      sidebarIsCollapsed,
+      onCollapseSidebar
+    };
   }
 };
 </script>
