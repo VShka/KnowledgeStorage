@@ -1,0 +1,36 @@
+<template>
+  <nav class="nav-accordeon">
+    <div class="nav-accordeon__container">
+      <div class="nav-accordeon__icon_preview">&#xf1cb;</div>
+      <div class="nav-accordeon__icon_small">&#xf1cb;</div>
+      <div class="nav-accordeon__icon_large">
+        <h3 class="nav-accordeon__link-title">Статьи</h3>
+        <p class="nav-accordeon__link-text">Text</p>
+      </div>
+    </div>
+    <div class="nav-accordeon__container">
+      <div class="nav-accordeon__icon_preview">&#xf17d;</div>
+      <div class="nav-accordeon__icon_small">&#xf17d;</div>
+      <div class="nav-accordeon__icon_large">
+        <h3 class="nav-accordeon__link-title">Книги</h3>
+        <p class="nav-accordeon__link-text">Text</p>
+      </div>
+    </div>
+    <div class="nav-accordeon__container">
+      <div class="nav-accordeon__icon_preview">&#xf26e;</div>
+      <div class="nav-accordeon__icon_small">&#xf26e;</div>
+      <div class="nav-accordeon__icon_large">
+        <h3 class="nav-accordeon__link-title">Видео</h3>
+        <p class="nav-accordeon__link-text">Text</p>
+      </div>
+    </div>
+  </nav>
+</template>
+
+<script lang="ts">
+export default {
+  name: "AccordeonMenu"
+};
+</script>
+
+<style lang="scss" src="./nav-accord.scss"></style>

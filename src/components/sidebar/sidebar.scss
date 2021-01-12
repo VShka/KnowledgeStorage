@@ -65,27 +65,12 @@
   font-weight: 500;
 }
 
-.sidebar__menu-link-icon {
-  flex: 0 0 24px;
-  height: 24px;
-  width: 24px;
-  display: block;
-  background-repeat: no-repeat;
-  background-position: center;
-  vertical-align: middle;
-}
-
-.sidebar__menu-link-icon_list {
-  background-image: url("~@/assets/img/icons/list-icon-red.svg");
-}
-
 .sidebar__menu-link-text {
   color: #92929D;
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
   vertical-align: middle;
-  margin-left: 12px;
   white-space: nowrap;
 }
 
