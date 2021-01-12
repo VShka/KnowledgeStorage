@@ -1,0 +1,68 @@
+.nav-accordeon {
+  $w: 80px;
+  $h: 500px;
+  width: 100%;
+  height: 290px;
+  background: #fff;
+  transform: translateZ(0);
+  &:hover .nav-accordeon__container {
+    height: 20%;
+  }
+  .nav-accordeon__container {
+    // position: relative;
+    // float: left;
+    width: 100%;
+    height: 20%;
+    color: #aaa;
+    border-bottom: 5px solid #ddd;
+    border-left: 5px solid #555;
+    transition: .5s width;
+    overflow: hidden;
+    cursor: pointer;
+    &:hover {
+      height: 40%;
+      color: #555;
+      border-left: 5px solid rgb(206, 4, 4);
+    }
+    .nav-accordeon__icon_small {
+      // position: absolute;
+      // top: 0;
+      // left: 0;
+      height: ($h/5);
+      line-height: 78px;
+      text-align: center;
+      font-family: fontawesome;
+      font-size: 24px;
+    }
+    .nav-accordeon__icon_large {
+      // position: absolute;
+      // top: 22px;
+      // left: 100px;
+      .nav-accordeon__link-title, .nav-accordeon__link-text {
+        font-size: 16px;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+      .nav-accordeon__link-text {
+        margin-top: 8px;
+        font-size: 12px;
+      }
+    }
+    .nav-accordeon__icon_preview {
+      // position: absolute;
+      // top: 0;
+      // left: 7px;
+      font-family: fontawesome;
+      font-size: 12px;
+      line-height: 78px;
+      transition: .5s opacity;
+      opacity: 0;
+    }
+    &:hover .nav-accordeon__icon_preview {
+      opacity: 0;
+    }
+  }
+  &:hover .nav-accordeon__icon_preview {
+    opacity: 1;
+  }
+}

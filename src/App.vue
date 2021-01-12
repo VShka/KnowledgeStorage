@@ -4,6 +4,7 @@
 
 <style lang="scss">
 @import "assets/css/normalize.css";
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 body {
   font-weight: 400;
   color: #171725;
