@@ -6,10 +6,14 @@
 
     <div class="homepage__grid-menu">
       <ul class="grid-list">
-        <li class="grid-list__item">
-          <div class="dgrid-list__icon"></div>
-          <h3 class="grid-list__title">Знания</h3>
-        </li>
+        <router-link to="/knowledge">
+          <li class="grid-list__item">
+            <div class="dgrid-list__icon"></div>
+            <h3 class="grid-list__title">
+              Знания
+            </h3>
+          </li>
+        </router-link>
         <li class="grid-list__item">
           <div class="grid-list__icon grid-list__icon-achivement"></div>
           <h3 class="grid-list__title">Ачивки</h3>
