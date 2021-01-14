@@ -15,6 +15,14 @@ const routes: Array<RouteRecordRaw> = [
           )
       },
       {
+        path: "/knowledge",
+        name: "knowledge-page",
+        component: () =>
+          import(
+            /* webpackChunkName: "knowledge-page" */ "@/views/knowledge-page/knowledge-page.vue"
+          )
+      },
+      {
         path: "*",
         name: "404",
         component: () =>
