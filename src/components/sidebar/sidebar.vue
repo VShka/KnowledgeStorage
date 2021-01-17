@@ -1,6 +1,19 @@
 <template>
   <aside class="sidebar" :class="{ sidebar_collapsed: isCollapsed }">
-    <nav class="sidebar__menu">
+    <transition
+      name="menu-link-text-fade"
+      enter-class="sidebar__menu-link-text_fade-enter"
+      leave-class="sidebar__menu-link-text_fade-leave"
+      enter-active-class="sidebar__menu-link-text_fade-enter"
+      leave-active-class="sidebar__menu-link-text_fade-leave"
+      enter-to-class="sidebar__menu-link-text_fade-enter-from"
+      leave-to-class="sidebar__menu-link-text_fade-leave-to"
+    >
+      <div v-show="isCollapsed" class="sidebar__menu-link-text">
+        <AccordeonMenu />
+      </div>
+    </transition>
+    <!-- <nav class="sidebar__menu">
       <ul class="sidebar__menu-list">
         <li class="sidebar__menu-item">
           <router-link
@@ -9,26 +22,10 @@
             active-class="sidebar__menu-link_active"
             :to="{ name: 'index' }"
           >
-            <span
-              class="sidebar__menu-link-icon sidebar__menu-link-icon_list"
-            ></span>
-            <transition
-              name="menu-link-text-fade"
-              enter-class="sidebar__menu-link-text_fade-enter"
-              leave-class="sidebar__menu-link-text_fade-leave"
-              enter-active-class="sidebar__menu-link-text_fade-enter"
-              leave-active-class="sidebar__menu-link-text_fade-leave"
-              enter-to-class="sidebar__menu-link-text_fade-enter-from"
-              leave-to-class="sidebar__menu-link-text_fade-leave-to"
-            >
-              <span v-show="isCollapsed" class="sidebar__menu-link-text"
-                >Мои знания</span
-              >
-            </transition>
           </router-link>
         </li>
       </ul>
-    </nav>
+    </nav> -->
     <button
       class="sidebar__collapse-btn"
       :class="{ 'sidebar__collapse-btn_collapsed': isCollapsed }"
@@ -37,8 +34,12 @@
   </aside>
 </template>
 <script lang="ts">
+import AccordeonMenu from "@/components/nav-accordeon/nav-accordeon.vue";
 export default {
   name: "Sidebar",
+  components: {
+    AccordeonMenu
+  },
   props: ["isCollapsed"]
 };
 </script>
