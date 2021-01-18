@@ -1,7 +1,7 @@
 <template>
   <section class="homepage">
     <h1 class="homepage__title">
-      Хранилище знаний
+      Древо знаний
     </h1>
 
     <div class="homepage__grid-menu">
