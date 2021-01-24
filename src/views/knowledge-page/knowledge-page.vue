@@ -3,7 +3,9 @@
     <ul class="grid-list">
       <li class="grid-list__item">
         <div class="dgrid-list__icon"></div>
-        <h3 class="grid-list__title">Статьи</h3>
+        <router-link to="/articles">
+          <h3 class="grid-list__title">Статьи</h3>
+        </router-link>
       </li>
       <li class="grid-list__item">
         <div class="grid-list__icon grid-list__icon-achivement"></div>

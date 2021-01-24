@@ -11,16 +11,19 @@
     >
       <router-view></router-view>
     </main>
+    <Footer />
   </div>
 </template>
 <script lang="ts">
 import Header from "@/components/header/header.vue";
 import Sidebar from "@/components/sidebar/sidebar.vue";
+import Footer from "@/components/footer/footer.vue";
 import { onMounted, ref } from "vue";
 export default {
   components: {
     Header,
-    Sidebar
+    Sidebar,
+    Footer
   },
   setup() {
     const sidebarIsCollapsed = ref(true);
