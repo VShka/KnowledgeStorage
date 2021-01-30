@@ -1,33 +1,25 @@
 <template>
   <section class="articles">
+    <button @click="getArticles">Получить данные</button>
     <ul class="articles__list">
-      <li
-        v-for="(article, id) in articles"
-        :key="id"
-        class="articles__list-item"
-      >
-        {{ article }}
-      </li>
+      <li class="articles__list-item"></li>
     </ul>
   </section>
 </template>
 
 <script>
+import store from "@/store";
+
 export default {
   name: "Articles",
 
   setup() {
-    const articles = [
-      "Frontend",
-      "Backend",
-      "DevOPs",
-      "Mobile",
-      "DataScience",
-      "MachingLearning"
-    ];
+    const getArticles = () => {
+      console.log(store.state.data);
+    };
 
     return {
-      articles
+      getArticles
     };
   }
 };
