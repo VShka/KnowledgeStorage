@@ -1,25 +1,38 @@
 <template>
   <section class="articles">
-    <button @click="getArticles">Получить данные</button>
+    <button @click="increment">+</button>
+    <button @click="decrement">-</button>
+    <button @click="incrementIfOdd">Increment if odd</button>
+    <button @click="incrementAsync">Increment async</button>
     <ul class="articles__list">
-      <li class="articles__list-item"></li>
+      <li class="articles__list-item">{{ count }} count is {{ evenOrOdd }}</li>
     </ul>
   </section>
 </template>
 
 <script>
-import store from "@/store";
+import { useStore } from "vuex";
+import { computed } from "vue";
 
 export default {
   name: "Articles",
 
   setup() {
-    const getArticles = () => {
-      console.log(store.state.data);
-    };
+    const store = useStore();
+    const count = computed(() => store.state.count);
+    const evenOrOdd = computed(() => store.getters.evenOrOdd);
+    const increment = () => store.dispatch("increment");
+    const decrement = () => store.dispatch("decrement");
+    const incrementIfOdd = () => store.dispatch("incrementIfOdd");
+    const incrementAsync = () => store.dispatch("incrementAsync");
 
     return {
-      getArticles
+      count,
+      evenOrOdd,
+      increment,
+      decrement,
+      incrementIfOdd,
+      incrementAsync
     };
   }
 };
