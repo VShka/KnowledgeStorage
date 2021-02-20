@@ -18,10 +18,12 @@
           <div class="grid-list__icon grid-list__icon-achivement"></div>
           <h3 class="grid-list__title">Ачивки</h3>
         </li>
-        <li class="grid-list__item">
-          <div class="grid-list__icon"></div>
-          <h3 class="grid-list__title">Абракадабра</h3>
-        </li>
+        <router-link to="/sections">
+          <li class="grid-list__item">
+            <div class="grid-list__icon"></div>
+            <h3 class="grid-list__title">Мои разделы</h3>
+          </li>
+        </router-link>
       </ul>
     </div>
   </section>

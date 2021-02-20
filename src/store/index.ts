@@ -1,36 +1,19 @@
 import { createStore } from "vuex";
-// import getRequest from "@/infrastructure/getRequest/getRequest";
+import getUserData from "@/infrastructure/getRequests/getUserData";
+import getUsers from "@/infrastructure/getRequests/getUsers";
 
 const state = {
-  count: 1
+  userData: []
 };
 
-const getters = {
-  evenOrOdd: state => (state.count % 2 === 0 ? "even" : "odd")
-};
-const mutations = {
-  increment(state) {
-    state.count++;
-  },
-  decrement(state) {
-    state.count--;
-  }
-};
+const getters = {};
+const mutations = {};
 const actions = {
-  increment: ({ commit }) => commit("increment"),
-  decrement: ({ commit }) => commit("decrement"),
-  incrementIfOdd({ commit, state }) {
-    if ((state.count + 1) % 2 === 0) {
-      commit("increment");
-    }
+  getUsers() {
+    getUsers();
   },
-  incrementAsync({ commit }) {
-    return new Promise((resolve): void => {
-      setTimeout(() => {
-        commit("increment");
-        resolve();
-      }, 1000);
-    });
+  getUserData({ state }) {
+    state.userData = getUserData();
   }
 };
 

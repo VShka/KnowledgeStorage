@@ -31,6 +31,14 @@ const routes: Array<RouteRecordRaw> = [
           )
       },
       {
+        path: "/sections",
+        name: "sections",
+        component: () =>
+          import(
+            /* webpackChunkName: "knowledge-page" */ "@/views/sections/sections.vue"
+          )
+      },
+      {
         path: "*",
         name: "404",
         component: () =>

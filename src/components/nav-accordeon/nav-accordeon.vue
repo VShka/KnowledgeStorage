@@ -4,8 +4,10 @@
       <div class="nav-accordeon__icon_preview">&#xf1cb;</div>
       <div class="nav-accordeon__icon_small">&#xf1cb;</div>
       <div class="nav-accordeon__icon_large">
-        <router-link to="/knowledge">Программирование</router-link>
-        <p class="nav-accordeon__link-text">'Hello, world!'</p>
+        <router-link to="/knowledge">
+          <h3 class="nav-accordeon__link-title">Программирование</h3>
+          <p class="nav-accordeon__link-text">'Hello, world!'</p>
+        </router-link>
       </div>
     </div>
     <div class="nav-accordeon__container">
