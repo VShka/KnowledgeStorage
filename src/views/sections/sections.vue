@@ -3,10 +3,10 @@
     <ul class="sections-list">
       <li
         class="sections-list__item"
-        v-for="(section, id) in userData"
-        :key="id"
+        v-for="(category, index) in userCategory"
+        :key="index"
       >
-        {{ section.name }}
+        {{ category }}
       </li>
       <!-- <router-link to="/knowledge">
         <li class="sections-list__item">
@@ -25,6 +25,10 @@
         </p>
       </li> -->
     </ul>
+
+    <button class="sections__btn-create" @click="createCategory">
+      Добавить категорию
+    </button>
   </section>
 </template>
 
@@ -36,10 +40,14 @@ export default {
 
   setup() {
     const store = useStore();
-    const userData = computed(() => store.state.userData);
+    const userCategory = computed(() => store.getters.getCategory);
+    const createCategory = () => {
+      console.log("Категория создана");
+    };
 
     return {
-      userData
+      userCategory,
+      createCategory
     };
   }
 };

@@ -1,19 +1,27 @@
 import { createStore } from "vuex";
 import getUserData from "@/infrastructure/getRequests/getUserData";
-import getUsers from "@/infrastructure/getRequests/getUsers";
 
 const state = {
   userData: []
 };
 
-const getters = {};
-const mutations = {};
+const getters = {
+  getCategory(state) {
+    return state.userData.map(item => {
+      return item.name;
+    });
+  }
+};
+const mutations = {
+  setUserData(state, data) {
+    state.userData = data;
+  }
+};
 const actions = {
-  getUsers() {
-    getUsers();
-  },
-  getUserData({ state }) {
-    state.userData = getUserData();
+  getUserData({ commit }) {
+    getUserData().then(data => {
+      commit("setUserData", data);
+    });
   }
 };
 

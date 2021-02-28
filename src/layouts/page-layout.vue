@@ -18,7 +18,7 @@
 import Header from "@/components/header/header.vue";
 import Sidebar from "@/components/sidebar/sidebar.vue";
 import Footer from "@/components/footer/footer.vue";
-import { onMounted, ref } from "vue";
+import { onBeforeMount, onMounted, ref } from "vue";
 import { useStore } from "vuex";
 export default {
   components: {
@@ -39,13 +39,15 @@ export default {
       sidebarIsCollapsed.value = value;
     };
 
+    onBeforeMount(() => {
+      // получение всех данных пользователя
+      store.dispatch("getUserData");
+    });
+
     onMounted(() => {
       if (localStorage.getItem("tnOrderIsSidebarMinified")) {
         sidebarIsCollapsed.value = false;
       }
-
-      // получение всех данных пользователя
-      store.dispatch("getUserData");
     });
 
     return {
