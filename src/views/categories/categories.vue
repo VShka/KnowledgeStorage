@@ -1,32 +1,18 @@
 <template>
-  <section class="sections">
-    <ul class="sections-list">
-      <li
-        class="sections-list__item"
+  <section class="categories">
+    <ul class="categories-list">
+      <router-link
+        to="/knowledge"
         v-for="(category, index) in userCategory"
         :key="index"
       >
-        {{ category }}
-      </li>
-      <!-- <router-link to="/knowledge">
-        <li class="sections-list__item">
-          <h3>Программирование</h3>
-          <p class="nav-accordeon__link-text">'Hello, world!'</p>
+        <li class="categories-list__item">
+          <h3>{{ category }}</h3>
         </li>
       </router-link>
-      <li class="sections-list__item">
-        <h3 class="nav-accordeon__link-title">Математика</h3>
-        <p class="nav-accordeon__link-text">a + b = b + a</p>
-      </li>
-      <li class="sections-list__item">
-        <h3 class="nav-accordeon__link-title">Философия</h3>
-        <p class="nav-accordeon__link-text">
-          Пунктуальность - воровка времени.
-        </p>
-      </li> -->
     </ul>
 
-    <button class="sections__btn-create" @click="createCategory">
+    <button class="categories__btn-create" @click="createCategory">
       Добавить категорию
     </button>
   </section>
@@ -36,7 +22,7 @@
 import { useStore } from "vuex";
 import { computed } from "vue";
 export default {
-  name: "Sections",
+  name: "categories",
 
   setup() {
     const store = useStore();
@@ -54,17 +40,33 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.sections {
+.categories {
   margin-top: 100px;
+
+  .categories__btn-create {
+    padding: 10px 20px;
+    border: 1px solid red;
+    border-radius: 100px;
+    background-color: inherit;
+
+    &:hover {
+      background-color: red;
+      color: #fff;
+    }
+    &:active {
+      box-shadow: 0px 0px 60px rgba(0, 0, 0, 0.4);
+    }
+  }
 }
 
-.sections-list {
+.categories-list {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  grid-gap: 20px;
+  grid-gap: 40px;
+  margin-bottom: 40px;
 
-  .sections-list__item {
+  .categories-list__item {
     min-width: 205px;
     background-color: #fff;
     border-radius: 20px;

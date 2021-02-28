@@ -31,11 +31,11 @@ const routes: Array<RouteRecordRaw> = [
           )
       },
       {
-        path: "/sections",
-        name: "sections",
+        path: "/categories",
+        name: "categories",
         component: () =>
           import(
-            /* webpackChunkName: "knowledge-page" */ "@/views/sections/sections.vue"
+            /* webpackChunkName: "knowledge-page" */ "@/views/categories/categories.vue"
           )
       },
       {

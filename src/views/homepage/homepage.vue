@@ -18,10 +18,10 @@
           <div class="grid-list__icon grid-list__icon-achivement"></div>
           <h3 class="grid-list__title">Ачивки</h3>
         </li>
-        <router-link to="/sections">
+        <router-link to="/categories">
           <li class="grid-list__item">
             <div class="grid-list__icon"></div>
-            <h3 class="grid-list__title">Мои разделы</h3>
+            <h3 class="grid-list__title">Мои категории</h3>
           </li>
         </router-link>
       </ul>
@@ -45,7 +45,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  grid-gap: 20px;
+  grid-gap: 40px;
 
   .grid-list__item {
     min-width: 205px;
