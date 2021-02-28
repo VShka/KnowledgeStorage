@@ -7,9 +7,11 @@ const state = {
 
 const getters = {
   getCategory(state) {
-    return state.userData.map(item => {
-      return item.name;
-    });
+    if (state.userData.length != 0) {
+      return state.userData.map(item => {
+        return item.name;
+      });
+    }
   }
 };
 const mutations = {
