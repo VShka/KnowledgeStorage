@@ -14,7 +14,6 @@
 
     <form class="add-form">
       <input v-model="newCategory" type="text" class="add-form" />
-      <input v-model="categorySubtitle" type="text" class="add-form" />
     </form>
     <button class="categories__btn-create" @click="createNewCategory">
       Добавить категорию
@@ -30,12 +29,11 @@ export default {
 
   setup() {
     const newCategory = ref("");
-    const categorySubtitle = ref("");
     const store = useStore();
     const userCategory = computed(() => store.getters.getCategory);
     const createNewCategory = () => {
       const newUserCattegory = {
-        title: newCategory.value
+        name: newCategory.value
       };
 
       store.dispatch("addNewCategory", newUserCattegory);
@@ -46,8 +44,7 @@ export default {
     return {
       newCategory,
       userCategory,
-      createNewCategory,
-      categorySubtitle
+      createNewCategory
     };
   }
 };
