@@ -12,7 +12,11 @@
       </router-link>
     </ul>
 
-    <button class="categories__btn-create" @click="createCategory">
+    <form class="add-form">
+      <input v-model="newCategory" type="text" class="add-form" />
+      <input v-model="categorySubtitle" type="text" class="add-form" />
+    </form>
+    <button class="categories__btn-create" @click="createNewCategory">
       Добавить категорию
     </button>
   </section>
@@ -20,20 +24,30 @@
 
 <script>
 import { useStore } from "vuex";
-import { computed } from "vue";
+import { computed, ref } from "vue";
 export default {
   name: "categories",
 
   setup() {
+    const newCategory = ref("");
+    const categorySubtitle = ref("");
     const store = useStore();
     const userCategory = computed(() => store.getters.getCategory);
-    const createCategory = () => {
-      console.log("Категория создана");
+    const createNewCategory = () => {
+      const newUserCattegory = {
+        title: newCategory.value
+      };
+
+      store.dispatch("addNewCategory", newUserCattegory);
+
+      console.log(newUserCattegory);
     };
 
     return {
+      newCategory,
       userCategory,
-      createCategory
+      createNewCategory,
+      categorySubtitle
     };
   }
 };

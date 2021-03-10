@@ -1,5 +1,6 @@
 import { createStore } from "vuex";
 import getUserData from "@/infrastructure/getRequests/getUserData";
+import addNewCategory from "@/infrastructure/postRequest/addNewCategory";
 
 const state = {
   userData: []
@@ -23,6 +24,11 @@ const actions = {
   getUserData({ commit }) {
     getUserData().then(data => {
       commit("setUserData", data);
+    });
+  },
+  addNewCategory({ commit }, category) {
+    addNewCategory(category).then(res => {
+      commit("setUserData", res);
     });
   }
 };
