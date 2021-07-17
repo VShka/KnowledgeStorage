@@ -13,7 +13,7 @@
     </ul>
 
     <form class="add-form">
-      <input v-model="newCategory" type="text" class="add-form" />
+      <input v-model="newCategory" type="text" class="add-form__input" />
     </form>
     <button class="categories__btn-create" @click="createNewCategory">
       Добавить категорию
@@ -56,12 +56,12 @@ export default {
 
   .categories__btn-create {
     padding: 10px 20px;
-    border: 1px solid red;
+    border: 1px solid green;
     border-radius: 100px;
     background-color: inherit;
 
     &:hover {
-      background-color: red;
+      background-color: #ccc;
       color: #fff;
     }
     &:active {
@@ -91,6 +91,15 @@ export default {
       transition: 0.3s ease-in-out;
       border-radius: 50px;
     }
+  }
+}
+.add-form {
+  margin: 15px 0;
+
+  &__input {
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid green;
   }
 }
 </style>

@@ -5,7 +5,6 @@ import addNewCategory from "@/infrastructure/postRequest/addNewCategory";
 const state = {
   userData: []
 };
-
 const getters = {
   getCategory(state) {
     if (state.userData.length != 0) {
