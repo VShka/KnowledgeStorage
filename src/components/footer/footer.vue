@@ -8,6 +8,9 @@
       <p class="footer__copyright-back">
         Backend - <a href="#" target="_blank">Васяев Александр</a>
       </p>
+      <p class="footer__copyright-designer">
+        UI/UX - <a href="#" target="_blank">Рогов Владислав</a>
+      </p>
     </div>
   </footer>
 </template>
@@ -34,7 +37,7 @@ export default {
 
   .footer__copyright {
     display: flex;
-    grid-gap: 10px;
+    grid-gap: 20px;
   }
 }
 </style>
