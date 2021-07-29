@@ -9,23 +9,16 @@
       enter-to-class="sidebar__menu-link-text_fade-enter-from"
       leave-to-class="sidebar__menu-link-text_fade-leave-to"
     >
-      <div class="sidebar__menu-link-text">
-        <AccordeonMenu />
-      </div>
+      <NavigationMenu></NavigationMenu>
     </transition>
-    <button
-      class="sidebar__collapse-btn"
-      :class="{ 'sidebar__collapse-btn_collapsed': isCollapsed }"
-      @click="$emit('onCollapse', !isCollapsed)"
-    ></button>
   </aside>
 </template>
 <script lang="ts">
-import AccordeonMenu from "@/components/nav-accordeon/nav-accordeon.vue";
+import NavigationMenu from "@/components/navigation-menu/NavigationMenu.vue";
 export default {
   name: "Sidebar",
   components: {
-    AccordeonMenu
+    NavigationMenu
   },
   props: ["isCollapsed"]
 };
