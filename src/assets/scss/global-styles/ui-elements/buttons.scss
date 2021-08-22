@@ -1,0 +1,72 @@
+// colors
+$btn-bg_primary: #0066ff;
+$btn-bg_muted: rgba(0, 102, 255, 0.1);
+
+// font option
+$font-size_default: 16px;
+
+//another option
+$padding_default: 11px 20px;
+$border-radius_default: 20px;
+
+
+.btn {
+  font-size: $font-size_default;
+  border: none;
+}
+
+.btn_default {
+  background-color: $btn-bg_primary;
+  border-radius: $border-radius_default;
+  padding: $padding_default;
+  color: #fff;
+  transition: linear .2s;
+
+  &:hover {
+    background-color: #0b5fdc;
+    transition: linear .2s;
+  }
+
+  &:focus {
+    background-color: #0b5fdc;
+    transition: linear .2s;
+  }
+}
+
+.btn_muted {
+  background-color: $btn-bg_muted;
+  padding: $padding_default;
+  color: $btn-bg_primary;
+  border-radius: $border-radius_default;
+  transition: linear .2s;
+
+  &:hover {
+    background-color: rgba(11, 95, 220, 0.08);
+    transition: linear .2s;
+  }
+
+  &:focus {
+    background-color: rgba(11, 95, 220, 0.08);
+    transition: linear .2s;
+  }
+}
+
+.btn_outlined {
+  font-weight: 600;
+  background-color: transparent;
+  color: $btn-bg_primary;
+  border: 1px solid $btn-bg_primary;
+  padding: 14px 53px;
+  border-radius: 6px;
+  transition: linear .2s;
+
+  &:hover {
+    background-color: rgba(11, 95, 220, 0.08);
+    transition: ease .2s;
+  }
+
+  &:focus {
+    background-color: rgba(11, 95, 220, 0.08);
+    transition: linear .2s;
+  }
+}

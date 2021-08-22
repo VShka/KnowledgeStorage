@@ -1,34 +1,34 @@
 import { createStore } from "vuex";
-import getUserData from "@/infrastructure/getRequests/getUserData";
+import getUserCategories from "@/infrastructure/getRequests/getUserCategories";
 import addNewCategory from "@/infrastructure/postRequest/addNewCategory";
 
 const state = {
-  userData: []
+  userCategories: []
 };
 const getters = {
   getCategory(state) {
-    if (state.userData.length != 0) {
-      return state.userData.map(item => {
+    if (state.userCategories.length != 0) {
+      return state.userCategories.map(item => {
         return item.name;
       });
     }
   }
 };
-const mutations = {
-  setUserData(state, data) {
-    state.userData = data;
-  }
-};
 const actions = {
-  getUserData({ commit }) {
-    getUserData().then(data => {
-      commit("setUserData", data);
+  GET_USER_CATEGORIES({ commit }) {
+    getUserCategories().then(data => {
+      commit("UPDATE_USER_CATEGORIES", data);
     });
   },
-  addNewCategory({ commit }, category) {
+  ADD_NEW_CATEGORY({ commit }, category) {
     addNewCategory(category).then(res => {
       commit("setUserData", res);
     });
+  }
+};
+const mutations = {
+  UPDATE_USER_CATEGORIES(state, data) {
+    state.userCategories = data;
   }
 };
 

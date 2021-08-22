@@ -18,7 +18,7 @@
 import Header from "@/components/header/header.vue";
 import Sidebar from "@/components/sidebar/sidebar.vue";
 import Footer from "@/components/footer/footer.vue";
-import { onBeforeMount, onMounted, ref } from "vue";
+import { onBeforeMount, ref } from "vue";
 import { useStore } from "vuex";
 export default {
   components: {
@@ -41,13 +41,7 @@ export default {
 
     onBeforeMount(() => {
       // получение всех данных пользователя
-      store.dispatch("getUserData");
-    });
-
-    onMounted(() => {
-      if (localStorage.getItem("tnOrderIsSidebarMinified")) {
-        sidebarIsCollapsed.value = false;
-      }
+      store.dispatch("GET_USER_CATEGORIES");
     });
 
     return {
@@ -59,9 +53,9 @@ export default {
 </script>
 <style lang="scss" scoped>
 .main {
-  padding-left: 56px;
-  padding-top: 73px;
+  padding: 110px 2rem 50px;
   transition: 0.2s ease-in-out;
+  margin-left: 300px;
 }
 @media screen and (max-width: 1023px) {
   .main {

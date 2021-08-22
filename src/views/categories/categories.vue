@@ -1,16 +1,11 @@
 <template>
   <section class="categories">
-    <ul class="categories-list">
-      <router-link
-        to="/knowledge"
-        v-for="(category, index) in userCategory"
-        :key="index"
-      >
-        <li class="categories-list__item">
-          <h3>{{ category }}</h3>
-        </li>
-      </router-link>
-    </ul>
+    <UiHeaderViewFilter v-model:search="searchValue" />
+
+    <CategoriesList
+      v-if="userCategories.length > 0"
+      :user-categories="filteredCategories"
+    />
 
     <form class="add-form">
       <input v-model="newCategory" type="text" class="add-form__input" />
@@ -23,27 +18,50 @@
 
 <script>
 import { useStore } from "vuex";
-import { computed, ref } from "vue";
+import { ref } from "vue";
+// компоненты
+import CategoriesList from "@/views/categories/categories-list/CategoriesList";
+import UiHeaderViewFilter from "@/components/ui-components/UiHeaderViewFilter";
 export default {
   name: "categories",
+  components: {
+    CategoriesList,
+    UiHeaderViewFilter
+  },
+
+  data() {
+    return {
+      searchValue: ""
+    };
+  },
+
+  computed: {
+    userCategories() {
+      return this.$store.state.userCategories;
+    },
+    filteredCategories() {
+      const searchFilter = category =>
+        category.name.toLowerCase().includes(this.searchValue.toLowerCase());
+
+      return this.userCategories.filter(category => searchFilter(category));
+    }
+  },
 
   setup() {
     const newCategory = ref("");
     const store = useStore();
-    const userCategory = computed(() => store.getters.getCategory);
     const createNewCategory = () => {
-      const newUserCattegory = {
+      const newUserCategory = {
         name: newCategory.value
       };
 
-      store.dispatch("addNewCategory", newUserCattegory);
+      store.dispatch("ADD_NEW_CATEGORY", newUserCategory);
 
-      console.log(newUserCattegory);
+      console.log(newUserCategory);
     };
 
     return {
       newCategory,
-      userCategory,
       createNewCategory
     };
   }
@@ -52,8 +70,6 @@ export default {
 
 <style lang="scss" scoped>
 .categories {
-  margin-top: 100px;
-
   .categories__btn-create {
     padding: 10px 20px;
     border: 1px solid green;
@@ -65,34 +81,11 @@ export default {
       color: #fff;
     }
     &:active {
-      box-shadow: 0px 0px 60px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 0 60px rgba(0, 0, 0, 0.4);
     }
   }
 }
 
-.categories-list {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  grid-gap: 40px;
-  margin-bottom: 40px;
-
-  .categories-list__item {
-    min-width: 205px;
-    background-color: #fff;
-    border-radius: 20px;
-    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.2);
-    padding: 40px;
-    cursor: pointer;
-
-    &:hover {
-      background-color: rgba($color: rgb(168, 168, 168), $alpha: 1);
-      color: #fff;
-      transition: 0.3s ease-in-out;
-      border-radius: 50px;
-    }
-  }
-}
 .add-form {
   margin: 15px 0;
 
