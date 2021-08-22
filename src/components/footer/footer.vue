@@ -28,7 +28,7 @@ export default {
   padding: 22px 24px;
   border-bottom: 1px solid #e2e2ea;
   width: 100%;
-  z-index: 10;
+  z-index: 99999999;
   display: flex;
   align-items: center;
   justify-content: space-between;

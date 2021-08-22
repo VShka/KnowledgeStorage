@@ -8,14 +8,14 @@
       />
     </template>
 
-    <li class="categories-list_empty">
+    <li v-if="userCategories.length === 0" class="categories-list_empty">
       Категории не найдены
     </li>
   </ul>
 </template>
 
 <script>
-import CategoryCard from "@/components/categorieCard/CategoryCard";
+import CategoryCard from "@/views/categories/categories-list/CategoryCard";
 export default {
   name: "CategoriesList",
 

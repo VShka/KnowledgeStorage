@@ -3,7 +3,7 @@
     <div class="category__header">
       <div class="category__content-position">
         <img
-          src="../../assets/img/behance.png"
+          src="../../../assets/img/behance.png"
           :alt="`Категория - ${category.name} `"
           class="category__image"
         />
@@ -14,7 +14,7 @@
       </div>
 
       <div class="category__content-position">
-        <div class="category__btn-more">
+        <div class="category__btn-more" @click="openMoreMenu">
           <svg
             width="24"
             height="24"
@@ -28,6 +28,14 @@
             />
           </svg>
         </div>
+
+        <UiDropdownMoreMenu
+          class="category__more-option"
+          v-if="showMoreMenu"
+          :menu-items="menuItems"
+          :rtl="true"
+          @btnAction="moreBtnAction(category.id)"
+        />
       </div>
     </div>
 
@@ -81,8 +89,14 @@
 
 <script>
 import { ref } from "vue";
+import { useStore } from "vuex";
+import UiDropdownMoreMenu from "@/components/ui-components/UiDropdownMoreMenu";
 export default {
   name: "CategoryCard",
+
+  components: {
+    UiDropdownMoreMenu
+  },
 
   props: {
     category: {
@@ -92,6 +106,7 @@ export default {
   },
 
   setup() {
+    const store = useStore();
     const stats = [
       {
         title: "Статей прочитано",
@@ -110,16 +125,46 @@ export default {
       }
     ];
     const checked = ref(false);
+    const showMoreMenu = ref(false);
+    const menuItems = [
+      {
+        image: "share",
+        title: "Поделиться",
+        textColor: "#0066ff"
+      },
+      {
+        image: "close_big",
+        title: "Удалить категорию",
+        textColor: "#ff896f"
+      }
+    ];
+    const openMoreMenu = () => {
+      showMoreMenu.value = !showMoreMenu.value;
+    };
+    const moreBtnAction = categoryId => {
+      showMoreMenu.value = !showMoreMenu.value;
+      store.dispatch("DELETE_CATEGORY", categoryId);
+    };
 
     return {
       stats,
-      checked
+      checked,
+      menuItems,
+      showMoreMenu,
+      openMoreMenu,
+      moreBtnAction
     };
   }
 };
 </script>
 
 <style scoped>
+.category__more-option {
+  width: 206px;
+  position: absolute;
+  top: 60px;
+  right: 0;
+}
 .category__progress-container {
   margin-right: 120px;
 }
@@ -178,6 +223,7 @@ export default {
   padding: 46px 20px;
 }
 .category__content-position {
+  position: relative;
   display: flex;
   align-items: center;
 }

@@ -61,12 +61,14 @@ $border-radius_default: 20px;
   transition: linear .2s;
 
   &:hover {
-    background-color: rgba(11, 95, 220, 0.08);
+    background-color: $btn-bg_primary;
+    color: #fff;
     transition: ease .2s;
   }
 
   &:focus {
-    background-color: rgba(11, 95, 220, 0.08);
+    background-color: $btn-bg_primary;
+    color: #fff;
     transition: linear .2s;
   }
 }
